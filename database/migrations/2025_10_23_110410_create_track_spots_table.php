@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('track_spots', function (Blueprint $table) {
             $table->id();
-            // There is no `tracks` table in this project; make this a location relation
             $table->foreignId('location_id')->nullable()->constrained('locations')->nullOnDelete();
             $table->string('name'); // Es. "Curva 1", "Partenze", "Salita 3"
             $table->text('description')->nullable();

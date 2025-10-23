@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('path'); // foto originale (storage privato)
             $table->string('watermark_path'); // foto con watermark (pubblica)
-            $table->foreignId('event_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('track_spot_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('event_id')->nullable()->constrained('events')->nullOnDelete();
+            $table->foreignId('track_spot_id')->nullable()->constrained('track_spots')->nullOnDelete();
             $table->dateTime('taken_at')->nullable();
             $table->text('description')->nullable();
             $table->boolean('published')->default(true);
