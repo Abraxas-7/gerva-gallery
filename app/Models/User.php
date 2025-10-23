@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-use filament\Models\Contracts\FilamentUser;
-
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -39,16 +37,15 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
     public function canAccessFilament(): bool
     {
         return $this->email === 'admin@example.com';
     }
+
+    // kept for Filament compatibility
 }
