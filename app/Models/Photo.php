@@ -11,7 +11,6 @@ class Photo extends Model
         'path',
         'watermark_path',
         'event_id',
-        'location_id',
         'track_spot_id',
         'taken_at',
         'description',

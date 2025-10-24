@@ -12,10 +12,6 @@ class TrackSpot extends Model
         'description',
     ];
 
-    protected $casts = [
-        'track_id' => 'integer',
-    ];
-
     // A TrackSpot belongs to a Location (renamed from track)
     public function location()
     {

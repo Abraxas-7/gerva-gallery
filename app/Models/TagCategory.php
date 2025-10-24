@@ -10,6 +10,6 @@ class TagCategory extends Model
 
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->hasMany(Tag::class, 'tag_category_id');
     }
 }

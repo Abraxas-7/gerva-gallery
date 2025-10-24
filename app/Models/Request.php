@@ -8,14 +8,10 @@ class Request extends Model
 {
     protected $fillable = [
         'client_id',
-        'event_date',
         'status',
         'notes',
     ];
 
-    protected $casts = [
-        'event_date' => 'date',
-    ];
     public function client()
     {
         return $this->belongsTo(Client::class);
